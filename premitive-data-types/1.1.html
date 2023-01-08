@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premitive data types</title>
+  </head>
+  <body>
+    <h1>Premitive data types</h1>
+    <script>
+      const stringVariable = "This is a string";
+      const numberVariable = 15.15;
+      const objectVariable = { type: "object", value: "blah blah" };
+      const booleanVariable = true;
+      const nullVariable = null;
+      const undefinedVariable = undefined;
+      const symbolVariable = Symbol();
+
+      console.log(`string : ${stringVariable}`);
+      console.log(`number : ${numberVariable}`);
+      console.log(`object : ${JSON.stringify(objectVariable)}`);
+      console.log(`boolean : ${booleanVariable}`);
+      console.log(`null : ${nullVariable}`);
+      console.log(`undefined : ${undefinedVariable}`);
+      console.log(`symbol : ${symbolVariable.toString()}`);
+    </script>
+  </body>
+</html>
