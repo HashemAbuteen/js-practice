@@ -1,5 +1,4 @@
 const formInputs = document.getElementById("code-inputs").children;
-
 formInputs[0].addEventListener("paste" , (event) => {
     event.preventDefault();
     const pastedText = event.clipboardData.getData("text/plain");
@@ -16,9 +15,20 @@ formInputs[0].addEventListener("paste" , (event) => {
 
 for (let i = 0; i < 6; i++) {
     formInputs[i].addEventListener("input", (event)=> {
-        event.target.value = event.target.value[0];
         if(event.target.value.length > 0 && i !==5){
-        event.target.nextElementSibling.select();
+            event.target.value = event.target.value[0];
+            event.target.nextElementSibling.select();
+        }
+        if(i===5 && event.target.value.length > 0){
+            event.target.value = event.target.value[0];
+        }
+        if(event.target.value.length === 0 && i !==0){
+            event.target.previousElementSibling.select();
+        }
+        const regex = /^\d*$/;
+        if (!regex.test(event.target.value)){
+            event.target.value = "";
+            event.target.select();
         }
         event.target.classList.replace("red" , "normal");
     })
@@ -46,5 +56,7 @@ document.getElementsByTagName("form")[0].addEventListener("submit", function(eve
 
 
 formInputs[5].addEventListener("input", (event)=>{
-    document.querySelector('input[type="submit"]').click();
+    if(event.target.value.length !== 0){
+        document.querySelector('input[type="submit"]').click();
+    }
 });
