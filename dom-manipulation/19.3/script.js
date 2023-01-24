@@ -1,6 +1,7 @@
 const formInputs = document.getElementById("code-inputs").children;
 
 formInputs[0].addEventListener("paste" , (event) => {
+    event.preventDefault();
     const pastedText = event.clipboardData.getData("text/plain");
     event.value = "";
     console.log(pastedText);
@@ -13,24 +14,37 @@ formInputs[0].addEventListener("paste" , (event) => {
     }
 })
 
-// for (let i = 0; i < 6; i++) {
-//     formInputs[i].addEventListener("input", (event)=> {
-//         // debugger
-//         if(event.target.value.length > 0 && i !==5){
-//         event.target.value = event.target.value[0];
-//         event.target.nextElementSibling.select();
-//         }
-//         event.target.classList.replace("red" , "normal");
-//     })
-// }
+for (let i = 0; i < 6; i++) {
+    formInputs[i].addEventListener("input", (event)=> {
+        event.target.value = event.target.value[0];
+        if(event.target.value.length > 0 && i !==5){
+        event.target.nextElementSibling.select();
+        }
+        event.target.classList.replace("red" , "normal");
+    })
+}
 
-// document.getElementsByTagName("form")[0].addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let codeSubmited = "";
-//     for (let i = 0; i < 6; i++){
-//         if(formInputs[i].value.length === 0){
-//             formInputs[i].classList.replace("normal" , "red");
-//             codeSubmited+= formInputs[i].value;
-//         }
-//     }
-// });
+document.getElementsByTagName("form")[0].addEventListener("submit", function(event) {
+    event.preventDefault();
+    let codeSubmited = "";
+    for (let i = 0; i < 6; i++){
+        if(formInputs[i].value.length === 0){
+            formInputs[i].classList.replace("normal" , "red");
+        }
+        codeSubmited+= formInputs[i].value;
+    }
+    if(codeSubmited === "123456"){
+        console.log("Your code is correct");
+    }
+    else if (codeSubmited.length===6){
+        console.log("Wrong code");
+    }
+    else {
+        console.log("Your code is shorter than six");
+    }
+});
+
+
+formInputs[5].addEventListener("input", (event)=>{
+    document.querySelector('input[type="submit"]').click();
+});
