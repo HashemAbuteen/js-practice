@@ -1,0 +1,7 @@
+#font-controls {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    justify-content: flex-end;
+    gap: 1rem;
+}
