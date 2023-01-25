@@ -3,7 +3,7 @@ const ageCheckButton = document.getElementById("button-age-check");
 const resultDiv = document.getElementById("div-result");
 
 ageCheckButton.addEventListener("click" , () => {
-    const age = ageInput.value;
+    let age = ageInput.value;
     if(!isNaN(parseFloat(age))){
         age = parseFloat(age);
         if(age >= 18){
