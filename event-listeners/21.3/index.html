@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Application</title>
+  </head>
+  <body>
+    <h1>Job Application</h1>
+
+    <form>
+      <label for="application"
+        >Please provide a detailed summary of your qualifications and
+        experience:</label
+      >
+      <br /><br />
+      <textarea id="application" rows="10" cols="50"></textarea>
+      <br /><br />
+      <button type="button" onclick="submitApplication()">
+        Submit Application
+      </button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      function submitApplication() {
+        let application = document.getElementById("application").value;
+        let message = document.getElementById("message");
+
+        if (application.length < 100) {
+          message.innerHTML =
+            "Please provide at least 100 characters for your application";
+        } else {
+          message.innerHTML =
+            "Thank you for your application. We will review it and get back to you soon.";
+        }
+      }
+    </script>
+  </body>
+</html>
