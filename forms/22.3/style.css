@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.letter {
+    height: 2em;
+    width: 2em;
+    border: 2px black solid;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#word {
+    display: flex;
+    gap:1em;
+    justify-content: center;
+}
+
+.wrong {
+    background-color: red;
+}
+
+#letters {
+    width: 50%;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.letter.found , .letter.right {
+    background-color: green;
+}
+
+.letter.false {
+    background-color: red;
+}
+
