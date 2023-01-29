@@ -2,8 +2,10 @@ let word;
 const wordDiv = document.getElementById("word");
 const lettersDiv = document.getElementById("letters");
 let score;
+let foundLetters ;
 
 const resetGame = ()=> {
+    foundLetters = 0
     wordDiv.innerText = "";
     lettersDiv.innerText = "";
     score = 2600;
@@ -40,7 +42,6 @@ resetGame();
 
 
 
-  let foundLetters = 0;
   document.addEventListener("keydown", function(event) {
     if(event.keyCode >= 65 && event.keyCode <= 90){
         const letter = String.fromCharCode(event.keyCode);
