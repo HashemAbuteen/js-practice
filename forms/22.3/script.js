@@ -1,10 +1,12 @@
 let word;
 const wordDiv = document.getElementById("word");
 const lettersDiv = document.getElementById("letters");
+let score;
 
 const resetGame = ()=> {
     wordDiv.innerText = "";
     lettersDiv.innerText = "";
+    score = 2600;
     fetch("https://random-word-api.herokuapp.com/word")
 .then(response => response.json())
 .then(data => {
@@ -61,10 +63,11 @@ resetGame();
         }
         if(!correct){
             letterElement.classList.add("false");
+            score -= 100;
         }
     }
     if(foundLetters === word.length){
-        setTimeout(()=>alert("congrats you got the word") , 100) ;
+        setTimeout(()=>alert("congrats you got the word \n Score :" + score) , 100) ;
     }
 });
 
