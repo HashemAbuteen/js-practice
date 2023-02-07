@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #joke-container {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="joke-container">
+      <button id="fetch-joke-btn">Fetch Joke</button>
+      <h3 id="joke-title"></h3>
+      <p id="joke-text"></p>
+    </div>
+
+    <script>
+      const fetchJokeBtn = document.getElementById("fetch-joke-btn");
+      const jokeTitle = document.getElementById("joke-title");
+      const jokeText = document.getElementById("joke-text");
+
+      fetchJokeBtn.addEventListener("click", function () {
+        fetch("https://api.jokes.one/jod")
+          .then((res) => res.json())
+          .then((data) => {
+            jokeTitle.innerHTML = data.contents.jokes[0].joke.title;
+            jokeText.innerHTML = data.contents.jokes[0].joke.text;
+          })
+          .catch((error) => console.error(error));
+      });
+    </script>
+  </body>
+</html>
